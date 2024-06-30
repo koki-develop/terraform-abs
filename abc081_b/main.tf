@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc081_b
+
 variable "input" {
   type = string
 }
@@ -14,7 +16,7 @@ locals {
   counts = [for bin in local.bins : length(regex("0*$", bin))]
 
   # 最小値を取得
-  result = min(local.counts...)
+  result = tostring(min(local.counts...))
 }
 
 output "result" {
