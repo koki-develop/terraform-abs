@@ -5,7 +5,7 @@ variable "input" {
 }
 
 locals {
-  # 餅の直径のリストを取得
+  # d1...dn を取得
   lines = split("\n", chomp(var.input))
   dd    = [for i in range(1, length(local.lines)) : tonumber(local.lines[i])]
 
