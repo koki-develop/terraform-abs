@@ -6,15 +6,15 @@ variable "input" {
 
 locals {
   # 入力を改行で分割
-  lines = (split("\n", chomp(var.input)))
+  lines = split("\n", chomp(var.input))
 
-  # a, b, c を数値に変換
+  # a, b, c を取得
   a  = tonumber(local.lines[0])
-  bc = local.lines[1]
-  b  = tonumber(split(" ", local.bc)[0])
-  c  = tonumber(split(" ", local.bc)[1])
+  bc = split(" ", local.lines[1])
+  b  = tonumber(local.bc[0])
+  c  = tonumber(local.bc[1])
 
-  # s を文字列として取得
+  # s を取得
   s = local.lines[2]
 
   # a + b + c と s を結合
