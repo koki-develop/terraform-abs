@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc081_a
+
 variable "input" {
   type = string
 }
@@ -8,7 +10,7 @@ locals {
   nums = [for i in local.ss : tonumber(i)]
 
   # 合計
-  result = sum(local.nums)
+  result = tostring(sum(local.nums))
 }
 
 output "result" {
