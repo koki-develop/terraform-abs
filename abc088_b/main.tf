@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc088_b
+
 variable "input" {
   type = string
 }
@@ -22,7 +24,7 @@ locals {
   bob   = sum([for i in range(1, local.n, 2) : local.sorted_cards[i]])
 
   # 得点差を計算
-  result = local.alice - local.bob
+  result = tostring(local.alice - local.bob)
 }
 
 output "result" {
