@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc085_b
+
 variable "input" {
   type = string
 }
@@ -8,7 +10,7 @@ locals {
   dd    = [for i in range(1, length(local.lines)) : tonumber(local.lines[i])]
 
   # 重複しない直径の数をカウント
-  result = length(toset(local.dd))
+  result = tostring(length(toset(local.dd)))
 }
 
 output "result" {
