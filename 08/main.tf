@@ -11,8 +11,7 @@ locals {
   n     = tonumber(local.ny[0])
   y     = tonumber(local.ny[1])
 
-  # 全ての有効な組み合わせを計算
-  # FIXME: range には 1024 より大きい値は渡せない = N の値が 1024 以上だと動かない
+  # 条件に一致する組み合わを取得
   combinations = flatten([for x in range(0, local.n + 1) : [
     for y in range(0, local.n - x + 1) : {
       count_10000 = x,
@@ -21,7 +20,8 @@ locals {
     } if 10000 * x + 5000 * y + 1000 * (local.n - x - y) == local.y
   ]])
 
-  # 組み合わせの取得
+  # 単一の組み合わせを取得
+  # 存在しない場合は -1 を設定
   combination = length(local.combinations) > 0 ? local.combinations[0] : { count_10000 = -1, count_5000 = -1, count_1000 = -1 }
 
   # 結果文字列を形成
