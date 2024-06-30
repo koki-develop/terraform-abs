@@ -5,9 +5,10 @@ variable "input" {
 }
 
 locals {
-  # d1...dn を取得
+  # n, d1...dn を取得
   lines = split("\n", chomp(var.input))
-  dd    = [for i in range(1, length(local.lines)) : tonumber(local.lines[i])]
+  n     = tonumber(local.lines[0])
+  dd    = [for i in range(1, local.n + 1) : tonumber(local.lines[i])]
 
   # 重複しない直径の数をカウント
   result = tostring(length(toset(local.dd)))
