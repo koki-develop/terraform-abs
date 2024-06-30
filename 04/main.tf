@@ -12,15 +12,15 @@ locals {
   c     = tonumber(local.lines[2])
   x     = tonumber(local.lines[3])
 
-  # 各硬貨の組み合わせを計算
-  combinations = [for a in range(0, local.a + 1) : [
+  # 各硬貨の組み合わせを計算し、条件に一致するものを取得
+  combinations = flatten([for a in range(0, local.a + 1) : [
     for b in range(0, local.b + 1) : [
-      for c in range(0, local.c + 1) : (a * 500 + b * 100 + c * 50 == local.x) ? 1 : 0
+      for c in range(0, local.c + 1) : true if a * 500 + b * 100 + c * 50 == local.x
     ]
-  ]]
+  ]])
 
-  # 組み合わせの数を計算
-  result = tostring(sum(flatten(local.combinations)))
+  # 条件に一致する組み合わせの数を取得
+  result = tostring(length(local.combinations))
 }
 
 output "result" {
