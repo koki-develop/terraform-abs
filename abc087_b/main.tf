@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc087_b
+
 variable "input" {
   type = string
 }
@@ -18,7 +20,7 @@ locals {
   ]]
 
   # 組み合わせの数を計算
-  result = sum(flatten(local.combinations))
+  result = tostring(sum(flatten(local.combinations)))
 }
 
 output "result" {
