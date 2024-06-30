@@ -5,7 +5,7 @@ variable "input" {
 }
 
 locals {
-  # a, b を数値に変換
+  # a, b を取得
   ab = split(" ", chomp(var.input))
   a  = tonumber(local.ab[0])
   b  = tonumber(local.ab[1])
