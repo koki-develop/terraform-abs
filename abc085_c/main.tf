@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc085_c
+
 variable "input" {
   type = string
 }
