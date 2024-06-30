@@ -12,6 +12,7 @@ locals {
   y     = tonumber(local.ny[1])
 
   # 全ての有効な組み合わせを計算
+  # FIXME: range には 1024 より大きい値は渡せない = N の値が 1024 以上だと動かない
   combinations = flatten([for x in range(0, local.n + 1) : [
     for y in range(0, local.n - x + 1) : {
       count_10000 = x,
