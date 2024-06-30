@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abs/tasks/abc083_b
+
 variable "input" {
   type = string
 }
@@ -16,9 +18,9 @@ locals {
   valid_numbers = [for i in range(1, local.n + 1) : i if local.sums[i - 1] >= local.a && local.sums[i - 1] <= local.b]
 
   # 総和を計算
-  result = sum(local.valid_numbers)
+  result = tostring(sum(local.valid_numbers))
 }
 
-output "output" {
+output "result" {
   value = local.result
 }
