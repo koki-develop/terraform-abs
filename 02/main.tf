@@ -6,11 +6,10 @@ variable "input" {
 
 locals {
   # 入力を1文字ずつ分割して数値に変換
-  ss   = split("", chomp(var.input))
-  nums = [for i in local.ss : tonumber(i)]
+  ss = [for i in split("", chomp(var.input)) : tonumber(i)]
 
   # 合計
-  result = tostring(sum(local.nums))
+  result = tostring(sum(local.ss))
 }
 
 output "result" {
