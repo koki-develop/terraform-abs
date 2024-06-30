@@ -37,7 +37,7 @@ run "case_3" {
   }
 }
 
-# FIXME
+# FIXME: N の値が 1024 以上だと動かない
 # run "case_4" {
 #   variables {
 #     input = <<-EOT
