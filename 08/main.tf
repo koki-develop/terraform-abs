@@ -11,7 +11,7 @@ locals {
   n     = tonumber(local.ny[0])
   y     = tonumber(local.ny[1])
 
-  # 条件に一致する組み合わを取得
+  # 条件に一致する組み合わせを取得
   combinations = flatten([for x in range(0, local.n + 1) : [
     for y in range(0, local.n - x + 1) : {
       count_10000 = x,
