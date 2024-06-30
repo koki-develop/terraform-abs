@@ -5,11 +5,10 @@ variable "input" {
 }
 
 locals {
-  # 入力を1文字ずつ分割して数値に変換
-  ss = [for i in split("", chomp(var.input)) : tonumber(i)]
+  # "1" の数をカウント
+  count = length([for a in split("", chomp(var.input)) : a if a == "1"])
 
-  # 合計
-  result = tostring(sum(local.ss))
+  result = tostring(local.count)
 }
 
 output "result" {
